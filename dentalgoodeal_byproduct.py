@@ -485,5 +485,5 @@ print(len(productlist))
 
 df=pd.DataFrame(productlist)   
 print(df.head())
-df.to_csv("extraction/JUILLET/conditionsdentalgoogdeal19072022.csv")        
+df.to_csv("extraction/AOUT/conditionsdentalgoogdeal15082022.csv")        
 

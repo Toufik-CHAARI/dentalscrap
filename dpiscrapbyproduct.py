@@ -870,7 +870,7 @@ print(len(dpi_product))
 
 df=pd.DataFrame(dpi_product)   
 print(df.head())
-df.to_csv("extraction/JUILLET/conditionsDPI19072022.csv")
+df.to_csv("extraction/AOUT/conditionsDPI15082022.csv")
 
 
 

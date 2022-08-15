@@ -4,12 +4,9 @@ import time
 from requests_html import HTMLSession
 
 import pandas as pd
-from selenium.webdriver import Chrome
-from selenium import webdriver 
-from selenium.webdriver.common.by import By
-from requests_html import HTMLSession
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.ui import WebDriverWait 
+
+
+
 
 
 
@@ -166,102 +163,91 @@ def promoPF4():
     time.sleep(2)             
   
 def promoE25L():
-    url =[
-              
-        "https://www.promodentaire.com/contre-angle-expertmatic-e25l-1.html",
-        
-         ]
+    import time
+    url="https://www.promodentaire.com/contre-angle-expertmatic-e25l-1.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)
+    gamme="EXPERTmatic"
+    dealer="PROMODENTAIRE"
+    ref_kavo="1.007.5550"
+    pkavoname="EXPERTmatic E25L"
+
+    try :
+        pname = pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[2]/span',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+
+
+    try:
+        price = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[4]/span',first="True").text
+    except AttributeError as err:
+        price = "None"        
     
-    for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
-        soup = BeautifulSoup(r.content,'html.parser')
-        containers = soup.find_all("div",{"class":"product-info-main"})
+    try:
+        sku = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[1]',first="True").text
 
-        for contain in containers :
-            gamme="EXPERTmatic"
-            dealer="PROMODENTAIRE"
-            ref_kavo="1.007.5550"
-            pkavoname="EXPERTmatic E25L"
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
 
-            try :
-                pname = contain.find("h1",class_="page-title").get_text().strip()
-            except AttributeError as err:
-                pname = 'None'
-            link = link    
-          
+    'gamme': gamme,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'dealer': dealer,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prit Net' :price
         
-            try:
-                    price = contain.find('span','special-price').text
-            except :
-                    price = contain.find('span','normal-price').text
-            try:
-                sku = contain.find("p",class_="sku-part").get_text().strip()    
-            
-            except AttributeError as err:
-                sku = "None"
-            product_list ={
-
-        'gamme': gamme,
-        'ref_kavo':ref_kavo,
-        'pkavoname':pkavoname,
-        'dealer': dealer,
-        'référence' :    sku, 
-        'Désignation' : pname,            
-        'URL': link,
-        'Prit Net' :price
-           
-        }
-        fullProduxtList.append(product_list)
+    }
+    fullProduxtList.append(product_list)
     return fullProduxtList
-    time.sleep(2)   
+    time.sleep(2)
+
 
 def promoDuoPackE25L():
-    url =[
-              
-        "https://www.promodentaire.com/contre-angle-expertmatic-e25l-1.html",
-        
-         ]
+    import time
+    url="https://www.promodentaire.com/contre-angle-expertmatic-e25l-1.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)
+    gamme="EXPERTmatic"
+    dealer="PROMODENTAIRE"
+    ref_kavo="1.014.5499"
+    pkavoname="Duo-Pack E25L"
+
+    try :
+        pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[2]/div[2]/span',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+
+
+    try:
+        price = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[2]/div[4]/span',first="True").text
+    except AttributeError as err:
+        price = "None"        
     
-    for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
-        soup = BeautifulSoup(r.content,'html.parser')
-        containers = soup.find_all("div",{"class":"product-info-main"})
+    try:
+        sku = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[2]/div[1]',first="True").text
 
-        for contain in containers :
-            gamme="EXPERTmatic"
-            dealer="PROMODENTAIRE"
-            ref_kavo="1.014.5499"
-            pkavoname="check - Duo-Pack E25L"
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
 
-            try :
-                pname = contain.find("h1",class_="page-title").get_text().strip()
-            except AttributeError as err:
-                pname = 'None'
-            link = link    
-          
+    'gamme': gamme,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'dealer': dealer,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prit Net' :price
         
-            try:
-                    price = contain.find('span','special-price').text
-            except :
-                    price = contain.find('span','normal-price').text
-            try:
-                sku = contain.find("p",class_="sku-part").get_text().strip()    
-            
-            except AttributeError as err:
-                sku = "None"
-            product_list ={
-
-        'gamme': gamme,
-        'ref_kavo':ref_kavo,
-        'pkavoname':pkavoname,
-        'dealer': dealer,
-        'référence' :    sku, 
-        'Désignation' : pname,            
-        'URL': link,
-        'Prit Net' :price
-           
-        }
-        fullProduxtList.append(product_list)
+    }
+    fullProduxtList.append(product_list)
     return fullProduxtList
     time.sleep(2)
 
@@ -415,66 +401,35 @@ def promoE15C():
     return fullProduxtList
     time.sleep(2) 
 
-
-    
-
-
-#need to use jupiter
-def promoE680L():
+def promoE20L():
     import time
-    url="https://www.promodentaire.com/turbine-experttorque-kavo.html"
-    driver = webdriver.Chrome('/Users/chaaritoufik/Desktop/dev/scrap2/chromedriver')
-    driver.get(url)
-    WebDriverWait(driver, timeout=10)
-    
-    html=driver.page_source
-    soup= BeautifulSoup(html,'html.parser')
-    
-    element = driver.find_element(By.XPATH,'//*[@id="attribute186"]/option[1]')
-    print(soup)
-    driver.close()  
-    ###soup = BeautifulSoup(content,'html.parser')
-    #driver = webdriver.Chrome()
-    #driver.get("https://www.promodentaire.com/turbine-experttorque-kavo.html")
-    
-    #x=soup.select("script:contains('TURBINE EXPERTTORQUE KAVO')")  
-    #print(x[0])
-    #y=soup.Select("script:contains('TURBINE EXPERTTORQUE KAVO - E680L raccord MULTIflex')")  
- 
-  
-    
-    
-    #r= requests.get(url,headers={'User-Agent': 'Mozilla/5.0'})
-    #soup = BeautifulSoup(r.content,'html.parser')
-    
+    url="https://www.promodentaire.com/contre-angle-expertmatic-e20l-2.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)
+    gamme="EXPERTmatic"
+    dealer="PROMODENTAIRE"
+    ref_kavo="1.007.5540"
+    pkavoname="EXPERTmatic E20L"
 
-    '''
-    
-    containers = soup.find_all("div",{"class":"product-info-main"})
+    try :
+        pname = pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[2]/span',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
 
-    for contain in containers :
-        gamme="EXPERTtorque"
-        dealer="PROMODENTAIRE"
-        ref_kavo="1.006.8700"
-        pkavoname="EXPERTtorque E680L"
 
-        try :
-            pname = contain.find("h1",class_="page-title").get_text().strip()
-        except AttributeError as err:
-            pname = 'None'
-        link = link    
-        
+    try:
+        price = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[4]/span',first="True").text
+    except AttributeError as err:
+        price = "None"        
     
-        try:
-                price = contain.find('span','special-price').text
-        except :
-                price = contain.find('span','normal-price').text
-        try:
-            sku = contain.find("p",class_="sku-part").get_text().strip()    
-        
-        except AttributeError as err:
-            sku = "None"
-        product_list ={
+    try:
+        sku = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[1]',first="True").text
+
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
 
     'gamme': gamme,
     'ref_kavo':ref_kavo,
@@ -482,7 +437,139 @@ def promoE680L():
     'dealer': dealer,
     'référence' :    sku, 
     'Désignation' : pname,            
-    'URL': link,
+    'URL': url,
+    'Prit Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+    time.sleep(2)
+
+def promoDuoPackE20L():
+    import time
+    url="https://www.promodentaire.com/contre-angle-expertmatic-e20l-2.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)
+    gamme="EXPERTmatic"
+    dealer="PROMODENTAIRE"
+    ref_kavo="1.014.5505"
+    pkavoname="EXPERTmatic Duo Pack E20L"
+
+    try :
+        pname = pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[2]/div[2]/span',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+
+
+    try:
+        price = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[2]/div[4]/span',first="True").text
+    except AttributeError as err:
+        price = "None"        
+    
+    try:
+        sku = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[2]/div[1]',first="True").text
+
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'dealer': dealer,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prit Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+    time.sleep(2)    
+
+def promoDuoPackE20L_E25L():
+    import time
+    url="https://www.promodentaire.com/contre-angle-expertmatic-e20l-2.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)
+    gamme="EXPERTmatic"
+    dealer="PROMODENTAIRE"
+    ref_kavo="1.014.5475"
+    pkavoname="Duo-Pack E25L / E20L"
+
+    try :
+        pname = pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[3]/div[2]/span',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+
+
+    try:
+        price = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[3]/div[4]/span',first="True").text
+    except AttributeError as err:
+        price = "None"        
+    
+    try:
+        sku = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[3]/div[1]',first="True").text
+
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'dealer': dealer,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prit Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+    time.sleep(2)    
+
+def promoE680L():
+    import time
+    url="https://www.promodentaire.com/turbine-experttorque-kavo.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)
+    gamme="EXPERTtorque"
+    dealer="PROMODENTAIRE"
+    ref_kavo="1.006.8700"
+    pkavoname="EXPERTtorque E680L"
+
+    try :
+        pname = pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[2]/span',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+
+
+    try:
+        price = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[4]/span',first="True").text
+    except AttributeError as err:
+        price = "None"        
+    
+    try:
+        sku = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[1]',first="True").text
+
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'dealer': dealer,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
     'Prit Net' :price
         
     }
@@ -490,59 +577,49 @@ def promoE680L():
     return fullProduxtList
     time.sleep(2) 
 
-#need to use jupiter
 def promoE677L():
-    url =[
-              
-        "",
-        
-         ]
+    import time
+    url="https://www.promodentaire.com/turbine-experttorque-kavo.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)
+    gamme="EXPERTtorque"
+    dealer="PROMODENTAIRE"
+    ref_kavo="1.007.3600"
+    pkavoname="EXPERTtorque E677L"
+
+    try :
+        pname = pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[3]/div[2]/span',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+
+
+    try:
+        price = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[3]/div[4]/span',first="True").text
+    except AttributeError as err:
+        price = "None"        
     
-    for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
-        soup = BeautifulSoup(r.content,'html.parser')
-        containers = soup.find_all("div",{"class":"product-info-main"})
+    try:
+        sku = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[3]/div[1]',first="True").text
 
-        for contain in containers :
-            gamme="EXPERTtorque"
-            dealer="PROMODENTAIRE"
-            ref_kavo="1.007.5530"
-            pkavoname="EXPERTtorque E680L"
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
 
-            try :
-                pname = contain.find("h1",class_="page-title").get_text().strip()
-            except AttributeError as err:
-                pname = 'None'
-            link = link    
-          
+    'gamme': gamme,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'dealer': dealer,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prit Net' :price
         
-            try:
-                    price = contain.find('span','special-price').text
-            except :
-                    price = contain.find('span','normal-price').text
-            try:
-                sku = contain.find("p",class_="sku-part").get_text().strip()    
-            
-            except AttributeError as err:
-                sku = "None"
-            product_list ={
-
-        'gamme': gamme,
-        'ref_kavo':ref_kavo,
-        'pkavoname':pkavoname,
-        'dealer': dealer,
-        'référence' :    sku, 
-        'Désignation' : pname,            
-        'URL': link,
-        'Prit Net' :price
-           
-        }
-        fullProduxtList.append(product_list)
+    }
+    fullProduxtList.append(product_list)
     return fullProduxtList
-    time.sleep(2) 
-    '''
- 
- 
+    time.sleep(2)
 
 def promoM25L():
     url =[
@@ -1046,20 +1123,19 @@ def promoEXPERTsurg():
 
 
 
-
-
-
-
 promoRONDOflex()
 promoSONIC2003L()
 promoPF4()
 promoE25L()
 promoE25C()
+promoE20L()
 promoDuoPackE25L()
+promoDuoPackE20L()
+promoDuoPackE20L_E25L()
 promoE15L()
 promoE15C()
-#promoE680L()
-#promoE677L()
+promoE680L()
+promoE677L()
 promoM25L()
 promoM20L()
 promoM05L()
@@ -1077,4 +1153,5 @@ print(len(fullProduxtList))
 
 df=pd.DataFrame(fullProduxtList)   
 print(df.head())
-df.to_csv('extraction/JUILLET/conditionspromodentaire19072022.csv')
+df.to_csv('extraction/AOUT/conditionspromodentaire15082022.csv')
+

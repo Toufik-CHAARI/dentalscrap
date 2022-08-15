@@ -1500,6 +1500,6 @@ print(len(product_list))
 
 df=pd.DataFrame(product_list)   
 print(df.head())
-df.to_csv("extraction/JUILLET/conditionsHSF19072022.csv")
+df.to_csv("extraction/AOUT/conditionsHSF15082022.csv")
 
 
