@@ -252,6 +252,56 @@ def dpi_E15L():
     time.sleep(2)
     return(dpi_product)
 
+def dpi_E10C():
+    url =[ 
+            "https://www.dentalpromotion.fr/shop/product/25-10075560-expert-matic-piece-a-main-e10c-10chc-14286",
+        ]
+    for link in url:
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
+        soup = BeautifulSoup(r.content,'html.parser')
+        containers = soup.find_all("div",{"class":"singleProductContainer"})
+
+        for contain in containers :
+            
+            dealer= "DPI FRANCE"
+            gamme= "EXPERTmatic "
+            ref_kavo="1.007.5560"
+            pkavoname="EXPERTmatic E10C"
+
+            try :
+                pname = contain.find("div",class_="singleProductName").get_text().strip()
+            except AttributeError as err:
+                pname = 'None'
+            link = link
+            
+            try :
+                price = contain.find("span",{"class":"singleProductCurrentPrice"}).get_text().strip()
+            except AttributeError as err:
+                price = "None"
+
+            try:
+                sku = contain.find("div",class_="singleProductMetaValue").get_text().strip()    
+            
+            except AttributeError as err:
+                sku = "None"
+            
+                
+            product_list ={
+                'SKU' : sku,
+                'Product_name' : pname,
+                'ref_kavo':ref_kavo,
+                'pkavoname':pkavoname,
+                'Price': price,
+                'URL': link,
+                'Dealer': dealer,
+                'Gamme': gamme
+                
+            }
+            dpi_product.append(product_list)
+    time.sleep(2)
+    return(dpi_product)
+
+
 def dpi_E680L():
     url =[ 
             "https://www.dentalpromotion.fr/shop/product/25-10068700-expert-torque-turbine-e680l-660b-14107",
@@ -846,6 +896,263 @@ def dpi_RONDOflex():
     time.sleep(2)
     return(dpi_product)
 
+
+def dpi_DuoPackM9000L():
+    url =[ 
+            "",
+        ]
+    for link in url:
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
+        soup = BeautifulSoup(r.content,'html.parser')
+        containers = soup.find_all("div",{"class":"singleProductContainer"})
+
+        for contain in containers :
+            
+            dealer= "DPI FRANCE"
+            gamme= "MASTERtorque"
+            ref_kavo="1.014.5479"
+            pkavoname="Duo-Pack MASTERtorque M9000L"
+
+            try :
+                pname = contain.find("div",class_="singleProductName").get_text().strip()
+            except AttributeError as err:
+                pname = 'None'
+            link = link
+            
+            try :
+                price = contain.find("span",{"class":"singleProductCurrentPrice"}).get_text().strip()
+            except AttributeError as err:
+                price = "None"
+
+            try:
+                sku = contain.find("div",class_="singleProductMetaValue").get_text().strip()    
+            
+            except AttributeError as err:
+                sku = "None"
+            
+                
+            product_list ={
+                'SKU' : sku,
+                'Product_name' : pname,
+                'ref_kavo':ref_kavo,
+                'pkavoname':pkavoname,
+                'Price': price,
+                'URL': link,
+                'Dealer': dealer,
+                'Gamme': gamme
+                
+            }
+            dpi_product.append(product_list)
+    time.sleep(2)
+    return(dpi_product)
+
+
+
+def dpi_DuoPackM25L():
+    url =[ 
+            "",
+        ]
+    for link in url:
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
+        soup = BeautifulSoup(r.content,'html.parser')
+        containers = soup.find_all("div",{"class":"singleProductContainer"})
+
+        for contain in containers :
+            
+            dealer= "DPI FRANCE"
+            gamme= "MASTERmatic"
+            ref_kavo="1.014.5561"
+            pkavoname="Duo-Pack MASTERmatic M25L"
+
+            try :
+                pname = contain.find("div",class_="singleProductName").get_text().strip()
+            except AttributeError as err:
+                pname = 'None'
+            link = link
+            
+            try :
+                price = contain.find("span",{"class":"singleProductCurrentPrice"}).get_text().strip()
+            except AttributeError as err:
+                price = "None"
+
+            try:
+                sku = contain.find("div",class_="singleProductMetaValue").get_text().strip()    
+            
+            except AttributeError as err:
+                sku = "None"
+            
+                
+            product_list ={
+                'SKU' : sku,
+                'Product_name' : pname,
+                'ref_kavo':ref_kavo,
+                'pkavoname':pkavoname,
+                'Price': price,
+                'URL': link,
+                'Dealer': dealer,
+                'Gamme': gamme
+                
+            }
+            dpi_product.append(product_list)
+    time.sleep(2)
+    return(dpi_product)
+
+
+
+def dpi_DuoPackM25LM05L():
+    url =[ 
+            "",
+        ]
+    for link in url:
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
+        soup = BeautifulSoup(r.content,'html.parser')
+        containers = soup.find_all("div",{"class":"singleProductContainer"})
+
+        for contain in containers :
+            
+            dealer= "DPI FRANCE"
+            gamme= "MASTERmatic"
+            ref_kavo="1.014.5567"
+            pkavoname="Duo-Pack MASTERmatic M25L / M05L"
+
+            try :
+                pname = contain.find("div",class_="singleProductName").get_text().strip()
+            except AttributeError as err:
+                pname = 'None'
+            link = link
+            
+            try :
+                price = contain.find("span",{"class":"singleProductCurrentPrice"}).get_text().strip()
+            except AttributeError as err:
+                price = "None"
+
+            try:
+                sku = contain.find("div",class_="singleProductMetaValue").get_text().strip()    
+            
+            except AttributeError as err:
+                sku = "None"
+            
+                
+            product_list ={
+                'SKU' : sku,
+                'Product_name' : pname,
+                'ref_kavo':ref_kavo,
+                'pkavoname':pkavoname,
+                'Price': price,
+                'URL': link,
+                'Dealer': dealer,
+                'Gamme': gamme
+                
+            }
+            dpi_product.append(product_list)
+    time.sleep(2)
+    return(dpi_product)
+
+
+def dpi_Pf4():
+    url =[ 
+            "https://www.dentalpromotion.fr/shop/product/25-30028000-prophyflex-4-wave-22164?search=PROPHYFLEX",
+        ]
+    for link in url:
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
+        soup = BeautifulSoup(r.content,'html.parser')
+        containers = soup.find_all("div",{"class":"singleProductContainer"})
+
+        for contain in containers :
+            
+            dealer= "DPI FRANCE"
+            gamme= "PROPHYflex 4"
+            ref_kavo="3.002.8000"
+            pkavoname="PROPHYflex 4"
+
+            try :
+                pname = contain.find("div",class_="singleProductName").get_text().strip()
+            except AttributeError as err:
+                pname = 'None'
+            link = link
+            
+            try :
+                price = contain.find("span",{"class":"singleProductCurrentPrice"}).get_text().strip()
+            except AttributeError as err:
+                price = "None"
+
+            try:
+                sku = contain.find("div",class_="singleProductMetaValue").get_text().strip()    
+            
+            except AttributeError as err:
+                sku = "None"
+            
+                
+            product_list ={
+                'SKU' : sku,
+                'Product_name' : pname,
+                'ref_kavo':ref_kavo,
+                'pkavoname':pkavoname,
+                'Price': price,
+                'URL': link,
+                'Dealer': dealer,
+                'Gamme': gamme
+                
+            }
+            dpi_product.append(product_list)
+    time.sleep(2)
+    return(dpi_product)
+
+
+
+def dpi_Quattrocare():
+    url =[ 
+            "https://www.dentalpromotion.fr/shop/product/25-10083805-quattrocare-plus-2124a-14246",
+        ]
+    for link in url:
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
+        soup = BeautifulSoup(r.content,'html.parser')
+        containers = soup.find_all("div",{"class":"singleProductContainer"})
+
+        for contain in containers :
+            
+            dealer= "DPI FRANCE"
+            gamme= "QUATTROcare Plus"
+            ref_kavo="1.008.3805"
+            pkavoname="QUATTROcare Plus 2124A"
+
+            try :
+                pname = contain.find("div",class_="singleProductName").get_text().strip()
+            except AttributeError as err:
+                pname = 'None'
+            link = link
+            
+            try :
+                price = contain.find("span",{"class":"singleProductCurrentPrice"}).get_text().strip()
+            except AttributeError as err:
+                price = "None"
+
+            try:
+                sku = contain.find("div",class_="singleProductMetaValue").get_text().strip()    
+            
+            except AttributeError as err:
+                sku = "None"
+            
+                
+            product_list ={
+                'SKU' : sku,
+                'Product_name' : pname,
+                'ref_kavo':ref_kavo,
+                'pkavoname':pkavoname,
+                'Price': price,
+                'URL': link,
+                'Dealer': dealer,
+                'Gamme': gamme
+                
+            }
+            dpi_product.append(product_list)
+    time.sleep(2)
+    return(dpi_product)
+
+
+
+
+
 dpi_E25L()
 dpi_DUOE25L()
 dpi_E20L()
@@ -864,13 +1171,14 @@ dpi_M9000L()
 dpi_SONIC2008L()
 dpi_SONIC2003L()
 dpi_RONDOflex()
-
+dpi_Pf4()
+dpi_Quattrocare()
 
 print(len(dpi_product))
 
 df=pd.DataFrame(dpi_product)   
 print(df.head())
-df.to_csv("extraction/AOUT/conditionsDPI15082022.csv")
+df.to_csv("extraction/NOVEMBRE/conditionsDPI01112022.csv")
 
 
 

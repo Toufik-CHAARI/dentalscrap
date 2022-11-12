@@ -809,6 +809,6 @@ Prophyflex()
 print(len(productlist))
 df=pd.DataFrame(productlist)   
 print(df.head())
-df.to_csv('extraction/AOUT/conditionsdoctorstrong14082022.csv')
+df.to_csv('extraction/OCTOBRE/conditionsdoctorstrong08102022.csv')
 
 

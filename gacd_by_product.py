@@ -1249,7 +1249,7 @@ print(len(fullProduxtList))
 
 df=pd.DataFrame(fullProduxtList)   
 print(df.head())
-df.to_csv("extraction/AOUT/conditionsGACD15082022.csv")
+df.to_csv("extraction/OCTOBRE/conditionsGACD08102022.csv")
 
 
 

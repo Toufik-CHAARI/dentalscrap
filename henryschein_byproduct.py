@@ -413,6 +413,56 @@ def E15L():
     time.sleep(2)
     
     return(product_list)
+def DuoPackE15L():
+    link="https://www.henryschein.fr/fr-fr/corp/p/nouveautes/nouveautes/duo-pack-e15l-10145559-kavo/897-8665"
+
+    r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+    soup = BeautifulSoup(r.content,'lxml')
+    contain = soup.find("div",{"class":"product"})
+
+
+    gamme="EXPERTmatic"
+    dealer ="HENRY SCHEIN"
+    ref_kavo="1.014.5559"
+    pkavoname="Duo-Pack EXPERTmatic E15L"
+
+    try :
+        pname = soup.find('h1',class_="title").text
+    except AttributeError as err:
+        pname = 'No Product Name'
+
+
+
+    try :
+        price = contain.find("div",{"class":"product-price"}).get_text().strip().replace(' ¤','€')
+    except AttributeError as err:
+        price = "None"
+
+    try:
+        sku = contain.find("small",class_="x-small").get_text().strip().split()[-5].replace(' ','')    
+    except AttributeError as err:
+        sku = "None"      
+
+    link = link
+
+
+    data5 ={
+
+    'gamme':gamme,
+    'pkavoname':pkavoname,
+    'ref_kavo':ref_kavo,
+    'dealer':dealer,         
+    'pname':pname,
+    'price':price,
+    'sku':sku,            
+    'link':link,
+                
+    }
+
+    product_list.append(data5)
+    time.sleep(2)
+    
+    return(product_list)
 
 def E15C():
     link="https://www.henryschein.fr/fr-fr/corp/p/petit-equipement/instrumentation-rotative/contre-angle-vert-expertmatic-e15c-kavo/891-8736"
@@ -626,6 +676,106 @@ def M25L():
     dealer ="HENRY SCHEIN"
     ref_kavo="1.009.3630"
     pkavoname="MASTERmatic M25L"
+
+    try :
+        pname = soup.find('h1',class_="title").text
+    except AttributeError as err:
+        pname = 'No Product Name'
+
+
+
+    try :
+        price = contain.find("div",{"class":"product-price"}).get_text().strip().replace(' ¤','€')
+    except AttributeError as err:
+        price = "None"
+
+    try:
+        sku = contain.find("small",class_="x-small").get_text().strip().split()[-5].replace(' ','')    
+    except AttributeError as err:
+        sku = "None"      
+
+    link = link
+
+
+    data5 ={
+
+    'gamme':gamme,
+    'pkavoname':pkavoname,
+    'ref_kavo':ref_kavo,
+    'dealer':dealer,         
+    'pname':pname,
+    'price':price,
+    'sku':sku,            
+    'link':link,
+                
+    }
+
+    product_list.append(data5)
+    time.sleep(2)
+    
+    return(product_list)
+
+def DuoPackM25L():
+    link="https://www.henryschein.fr/fr-fr/corp/p/nouveautes/nouveautes/duo-pack-m25l-m25l-10145561-kavo/897-8663"
+    r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+    soup = BeautifulSoup(r.content,'lxml')
+    contain = soup.find("div",{"class":"product"})
+
+
+    gamme="MASTERmatic"
+    dealer ="HENRY SCHEIN"
+    ref_kavo="1.014.5561"
+    pkavoname="Duo-Pack MASTERmatic M25L"
+
+    try :
+        pname = soup.find('h1',class_="title").text
+    except AttributeError as err:
+        pname = 'No Product Name'
+
+
+
+    try :
+        price = contain.find("div",{"class":"product-price"}).get_text().strip().replace(' ¤','€')
+    except AttributeError as err:
+        price = "None"
+
+    try:
+        sku = contain.find("small",class_="x-small").get_text().strip().split()[-5].replace(' ','')    
+    except AttributeError as err:
+        sku = "None"      
+
+    link = link
+
+
+    data5 ={
+
+    'gamme':gamme,
+    'pkavoname':pkavoname,
+    'ref_kavo':ref_kavo,
+    'dealer':dealer,         
+    'pname':pname,
+    'price':price,
+    'sku':sku,            
+    'link':link,
+                
+    }
+
+    product_list.append(data5)
+    time.sleep(2)
+    
+    return(product_list)
+
+def DuoPackM25LM05L():
+    link="https://www.henryschein.fr/fr-fr/corp/p/nouveautes/nouveautes/duo-pack-m25l-m05l-10145567-kavo/897-8664"
+    r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+    soup = BeautifulSoup(r.content,'lxml')
+    contain = soup.find("div",{"class":"product"})
+
+
+    gamme="MASTERmatic"
+    dealer ="HENRY SCHEIN"
+    ref_kavo="1.014.5567"
+    pkavoname="Duo-Pack MASTERmatic M25L / M05L "
 
     try :
         pname = soup.find('h1',class_="title").text
@@ -926,6 +1076,56 @@ def M9000L():
     dealer ="HENRY SCHEIN"
     ref_kavo="1.008.7900"
     pkavoname="MASTERmatic M9000L"
+
+    try :
+        pname = soup.find('h1',class_="title").text
+    except AttributeError as err:
+        pname = 'No Product Name'
+
+
+
+    try :
+        price = contain.find("div",{"class":"product-price"}).get_text().strip().replace(' ¤','€')
+    except AttributeError as err:
+        price = "None"
+
+    try:
+        sku = contain.find("small",class_="x-small").get_text().strip().split()[-5].replace(' ','')    
+    except AttributeError as err:
+        sku = "None"      
+
+    link = link
+
+
+    data5 ={
+
+    'gamme':gamme,
+    'pkavoname':pkavoname,
+    'ref_kavo':ref_kavo,
+    'dealer':dealer,         
+    'pname':pname,
+    'price':price,
+    'sku':sku,            
+    'link':link,
+                
+    }
+
+    product_list.append(data5)
+    time.sleep(2)
+    
+    return(product_list)
+
+def DuoPackM9000L():
+    link="https://www.henryschein.fr/fr-fr/corp/p/nouveautes/nouveautes/duo-pack-m9000l-m9000l-10145479-kavo/897-8662"
+    r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+    soup = BeautifulSoup(r.content,'lxml')
+    contain = soup.find("div",{"class":"product"})
+
+
+    gamme="MASTERtorque"
+    dealer ="HENRY SCHEIN"
+    ref_kavo="1.014.5479"
+    pkavoname="Duo-Pack MASTERtorque M9000L "
 
     try :
         pname = soup.find('h1',class_="title").text
@@ -1472,12 +1672,16 @@ E25L()
 E25C()
 DuoPackE25l()
 DuoPackE25_E20L()
+DuoPackM9000L()
 E15L()
+DuoPackE15L()
 E15C()
 DuoE680L()
 E680L()
 E677L()
 M25L()
+DuoPackM25L()
+DuoPackM25LM05L()
 M20L()
 M05L()
 M07L()
@@ -1500,6 +1704,6 @@ print(len(product_list))
 
 df=pd.DataFrame(product_list)   
 print(df.head())
-df.to_csv("extraction/AOUT/conditionsHSF15082022.csv")
+df.to_csv("extraction/NOVEMBRE/conditionsHSF01112022.csv")
 
 

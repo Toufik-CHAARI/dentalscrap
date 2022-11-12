@@ -14,39 +14,38 @@ fullProduxtList =[]
 
 
 def promoRONDOflex():
-    url =[
-        "https://www.promodentaire.com/sableuse-rondoflex-plus.html"     
-         ]
+    link = "https://www.promodentaire.com/sableuse-rondoflex-plus.html"    
+         
     
-    for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
-        soup = BeautifulSoup(r.content,'html.parser')
-        containers = soup.find_all("div",{"class":"product-info-main"})
+    
+    r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
+    soup = BeautifulSoup(r.content,'html.parser')
+    containers = soup.find_all("div",{"class":"product-info-main"})
 
-        for contain in containers :
-            gamme="RONDOflex"
-            dealer="PROMODENTAIRE"
-            ref_kavo="1.002.2179"
-            pkavoname="RONDOflex Plus 360"
-            try :
-                pname = contain.find("h1",class_="page-title").get_text().strip()
-            except AttributeError as err:
-                pname = 'None'
-            link = link    
-          
+    for contain in containers :
+        gamme="RONDOflex"
+        dealer="PROMODENTAIRE"
+        ref_kavo="1.002.2179"
+        pkavoname="RONDOflex Plus 360"
+        try :
+            pname = contain.find("h1",class_="page-title").get_text().strip()
+        except AttributeError as err:
+            pname = 'None'
+        link = link    
         
-            try:
-                    price = contain.find('span','special-price').text
-            except :
-                    price = contain.find('span','normal-price').text
-            
-            try:
-                sku = contain.find("p",class_="sku-part").get_text().strip()
-                    
-            
-            except AttributeError as err:
-                sku = "None"
-            product_list ={
+
+        try:
+                price = contain.find('span','special-price').text
+        except :
+                price = contain.find('span','normal-price').text
+        
+        try:
+            sku = contain.find("p",class_="sku-part").get_text().strip()
+                
+        
+        except AttributeError as err:
+            sku = "None"
+        product_list ={
 
         'gamme': gamme,
         'dealer': dealer,
@@ -70,7 +69,7 @@ def promoSONIC2003L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -120,7 +119,7 @@ def promoPF4():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -166,7 +165,7 @@ def promoE25L():
     import time
     url="https://www.promodentaire.com/contre-angle-expertmatic-e25l-1.html"
     s = HTMLSession()
-    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
     r.html.render(sleep=1)
     gamme="EXPERTmatic"
     dealer="PROMODENTAIRE"
@@ -211,7 +210,7 @@ def promoDuoPackE25L():
     import time
     url="https://www.promodentaire.com/contre-angle-expertmatic-e25l-1.html"
     s = HTMLSession()
-    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
     r.html.render(sleep=1)
     gamme="EXPERTmatic"
     dealer="PROMODENTAIRE"
@@ -259,7 +258,7 @@ def promoE25C():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -309,7 +308,7 @@ def promoE15L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -359,7 +358,7 @@ def promoE15C():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -405,7 +404,7 @@ def promoE20L():
     import time
     url="https://www.promodentaire.com/contre-angle-expertmatic-e20l-2.html"
     s = HTMLSession()
-    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
     r.html.render(sleep=1)
     gamme="EXPERTmatic"
     dealer="PROMODENTAIRE"
@@ -449,7 +448,7 @@ def promoDuoPackE20L():
     import time
     url="https://www.promodentaire.com/contre-angle-expertmatic-e20l-2.html"
     s = HTMLSession()
-    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
     r.html.render(sleep=1)
     gamme="EXPERTmatic"
     dealer="PROMODENTAIRE"
@@ -493,7 +492,7 @@ def promoDuoPackE20L_E25L():
     import time
     url="https://www.promodentaire.com/contre-angle-expertmatic-e20l-2.html"
     s = HTMLSession()
-    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
     r.html.render(sleep=1)
     gamme="EXPERTmatic"
     dealer="PROMODENTAIRE"
@@ -537,7 +536,7 @@ def promoE680L():
     import time
     url="https://www.promodentaire.com/turbine-experttorque-kavo.html"
     s = HTMLSession()
-    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
     r.html.render(sleep=1)
     gamme="EXPERTtorque"
     dealer="PROMODENTAIRE"
@@ -581,7 +580,7 @@ def promoE677L():
     import time
     url="https://www.promodentaire.com/turbine-experttorque-kavo.html"
     s = HTMLSession()
-    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
     r.html.render(sleep=1)
     gamme="EXPERTtorque"
     dealer="PROMODENTAIRE"
@@ -589,7 +588,7 @@ def promoE677L():
     pkavoname="EXPERTtorque E677L"
 
     try :
-        pname = pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[3]/div[2]/span',first="True").text
+        pname =  r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[3]/div[2]/span',first="True").text
     except AttributeError as err:
         pname = 'None'
     url = url    
@@ -629,7 +628,7 @@ def promoM25L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -679,7 +678,7 @@ def promoM20L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -729,7 +728,7 @@ def promoM05L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -779,7 +778,7 @@ def promoM07L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -829,7 +828,7 @@ def promoM29L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -879,7 +878,7 @@ def promoM10L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -922,52 +921,47 @@ def promoM10L():
     time.sleep(2)
 
 def promoM9000L():
-    url =[
-              
-        "https://www.promodentaire.com/turbine-mastertorque-lux-m9000l.html",
-        
-         ]
     
-    for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
-        soup = BeautifulSoup(r.content,'html.parser')
-        containers = soup.find_all("div",{"class":"product-info-main"})
-
-        for contain in containers :
-            gamme="MASTERtorque"
-            dealer="PROMODENTAIRE"
-            ref_kavo="1.008.7900"
-            pkavoname="MASTERtorque M9000L"
-
-            try :
-                pname = contain.find("h1",class_="page-title").get_text().strip()
-            except AttributeError as err:
-                pname = 'None'
-            link = link    
-          
+    url="https://www.promodentaire.com/turbine-mastertorque-lux-m9000l.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
+    r.html.render(sleep=1)
+    
         
-            try:
-                    price = contain.find('span','special-price').text
-            except :
-                    price = contain.find('span','normal-price').text
-            try:
-                sku = contain.find("p",class_="sku-part").get_text().strip()    
-            
-            except AttributeError as err:
-                sku = "None"
-            product_list ={
+    gamme="MASTERtorque"
+    dealer="PROMODENTAIRE"
+    ref_kavo="1.008.7900"
+    pkavoname="MASTERtorque M9000L"
 
-        'gamme': gamme,
-        'ref_kavo':ref_kavo,
-        'pkavoname':pkavoname,
-        'dealer': dealer,
-        'référence' :    sku, 
-        'Désignation' : pname,            
-        'URL': link,
-        'Prit Net' :price
-           
-        }
-        fullProduxtList.append(product_list)
+    try :
+        pname = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[2]/span',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    link = url    
+    
+
+    try:
+            price = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[3]/div/div/span/span/span[2]',first="True").text
+    except :
+            price = "None"
+    try:
+        sku = r.html.xpath('//*[@id="table_all_variations"]/div[1]/div[2]/div[1]/div[1]',first="True").text    
+    
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'dealer': dealer,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': link,
+    'Prit Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
     return fullProduxtList
     time.sleep(2)
 
@@ -979,7 +973,7 @@ def promoM8700L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -1029,7 +1023,7 @@ def promoS11L():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -1079,7 +1073,7 @@ def promoEXPERTsurg():
          ]
     
     for link in url:
-        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'})
+        r= requests.get(link,headers={'User-Agent': 'Mozilla/5.0'},verify=False)
         soup = BeautifulSoup(r.content,'html.parser')
         containers = soup.find_all("div",{"class":"product-info-main"})
 
@@ -1124,6 +1118,7 @@ def promoEXPERTsurg():
 
 
 promoRONDOflex()
+
 promoSONIC2003L()
 promoPF4()
 promoE25L()
@@ -1153,5 +1148,5 @@ print(len(fullProduxtList))
 
 df=pd.DataFrame(fullProduxtList)   
 print(df.head())
-df.to_csv('extraction/AOUT/conditionspromodentaire15082022.csv')
+df.to_csv('extraction/OCTOBRE/conditionspromodentaire08102022.csv')
 

@@ -29,7 +29,7 @@ def megaRONDOflex():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -68,7 +68,7 @@ def megaSONICflex2008L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -107,7 +107,7 @@ def megaSONICflex2003L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -184,7 +184,7 @@ def megaE25L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text    
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -223,7 +223,7 @@ def megaE25C():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     except AttributeError as err:
         sku = "None"
     product_list ={
@@ -261,7 +261,7 @@ def megaDuoPackE25L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -300,7 +300,7 @@ def megaDuoPackE25_E20L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text    
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -319,6 +319,46 @@ def megaDuoPackE25_E20L():
     fullProduxtList.append(product_list)
     return fullProduxtList
     time.sleep(2)          
+
+def megaDuoPackE20L():
+    url ="https://www.megadental.fr/duo-pack-contre-angle-expertmatic-e20le20l-897-4994.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=2)         
+    gamme="EXPERTmatic"
+    dealer ="MEGA DENTAL"
+    ref_kavo="1.014.5505"
+    pkavoname="Duo-Pack E20L / E20L"
+    try :
+        pname = r.html.xpath('//*[@id="html-body"]/div[5]/div/div/div/ol/li[5]/a',first="True" ).text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+    try :
+        price = r.html.xpath('//*[@id="product-price-38146"]/span',first="True").text
+    except AttributeError as err:
+        price = "None"
+    try:
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
+    
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'dealer': dealer,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prix Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+      
+
 
 def megaE20L():
     url =  "https://www.megadental.fr/contre-angle-expertmatic-bleu-avec-lumiere-e20l-891-8739.html"
@@ -339,7 +379,7 @@ def megaE20L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text    
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -378,7 +418,7 @@ def megaE20C():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text    
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -417,7 +457,7 @@ def megaE15L():
     except AttributeError as err:
         price = "None"
     try:
-        sku =  r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[4]/div/p/span[2]',first="True").text    
+        sku =  r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -436,6 +476,47 @@ def megaE15L():
     fullProduxtList.append(product_list)
     return fullProduxtList
     time.sleep(2)
+
+def megaDuoPackE15L():
+    url ="https://www.megadental.fr/duo-pack-e15l-897-8665.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)         
+    gamme="EXPERTmatic"
+    dealer ="MEGA DENTAL"
+    ref_kavo="1.014.5559"
+    pkavoname="Duo-Pack E15L / E15L"
+    try :
+        pname = r.html.xpath('//*[@id="html-body"]/div[5]/div/div/div/ol/li[5]/a',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+    try :
+        price = r.html.xpath('//*[@id="product-price-44889"]/span',first="True").text
+    except AttributeError as err:
+        price = "None"
+    try:
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
+    
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'dealer': dealer,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prix Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+    time.sleep(2)  
+
+
 
 def megaE15C():
     url ="https://www.megadental.fr/contre-angle-expertmatic-vert-sans-lumiere-e15c-891-8736.html"
@@ -456,7 +537,7 @@ def megaE15C():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div/p/span[2]',first="True").text
     except AttributeError as err:
         sku = "None"
     product_list ={
@@ -494,7 +575,7 @@ def megaDuoE680L():
     except AttributeError as err:
         price = "None"
     try:
-        sku =  r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku =  r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -534,7 +615,7 @@ def megaE680L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div/p/span[2]',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -573,7 +654,7 @@ def megaE677L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     except AttributeError as err:
         sku = "None"
     product_list ={
@@ -611,7 +692,7 @@ def megaM25L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -630,6 +711,126 @@ def megaM25L():
     fullProduxtList.append(product_list)
     return fullProduxtList
     time.sleep(2)          
+
+def DuoPackM25L():
+    url = "https://www.megadental.fr/duo-pack-m25lm25l-897-8663.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)        
+    gamme="MASTERmatic"
+    dealer ="MEGA DENTAL"
+    ref_kavo="1.014.5561"
+    pkavoname="Duo-Pack MASTERmatic M25L"
+    try :
+        pname = r.html.xpath('//*[@id="html-body"]/div[5]/div/div/div/ol/li[5]/a',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+    try :
+        price = r.html.xpath('//*[@id="product-price-44887"]/span',first="True").text
+    except AttributeError as err:
+        price = "None"
+    try:
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
+    
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'dealer': dealer,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prix Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+    time.sleep(2) 
+
+
+def DuoPackM25LM05L():
+    url = "https://www.megadental.fr/duo-pack-m25lm05l-897-8664.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)        
+    gamme="MASTERmatic"
+    dealer ="MEGA DENTAL"
+    ref_kavo="1.014.5567"
+    pkavoname="Duo-Pack MASTERmatic M25L / M20L"
+    try :
+        pname = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[2]/h1',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+    try :
+        price = r.html.xpath('//*[@id="product-price-44888"]/span',first="True").text
+    except AttributeError as err:
+        price = "None"
+    try:
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div/p/span[2]',first="True").text
+    
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'dealer': dealer,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prix Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+    time.sleep(2) 
+
+def DuoPackM9000L():
+    url = "https://www.megadental.fr/duo-pack-m9000lm9000l-897-8662.html"
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)        
+    gamme="MASTERtorque"
+    dealer ="MEGA DENTAL"
+    ref_kavo="1.014.5479"
+    pkavoname="Duo-Pack MASTERtorque M9000L"
+    try :
+        pname = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[2]/h1',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+    try :
+        price = r.html.xpath('//*[@id="product-price-44886"]/span',first="True").text
+    except AttributeError as err:
+        price = "None"
+    try:
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div/p/span[2]',first="True").text
+    
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+    'gamme': gamme,
+    'dealer': dealer,
+    'ref_kavo':ref_kavo,
+    'pkavoname':pkavoname,
+    'référence' :    sku, 
+    'Désignation' : pname,            
+    'URL': url,
+    'Prix Net' :price
+        
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+    time.sleep(2) 
+
+
 
 def megaM20L():
     url = "https://www.megadental.fr/manche-de-contre-angle-m20l-890-5355.html"
@@ -650,7 +851,7 @@ def megaM20L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text    
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -689,7 +890,7 @@ def megaM05L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -729,7 +930,7 @@ def megaM07L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -768,7 +969,7 @@ def megaM29L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text    
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -807,7 +1008,7 @@ def megaM10L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text    
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -837,7 +1038,7 @@ def megaM9000L():
     ref_kavo="1.008.7900"
     pkavoname="MASTERtorque M9000L"
     try :
-        pname = r.html.xpath('//*[@id="maincontent"]/div[2]/h1/span',first="True").text
+        pname = r.html.xpath('//*[@id="html-body"]/div[5]/div/div/div/ol/li[5]/a',first="True").text
     except AttributeError as err:
         pname = 'None'
     url = url    
@@ -846,7 +1047,7 @@ def megaM9000L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -924,7 +1125,7 @@ def megaS11L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -963,7 +1164,7 @@ def megaS15L():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text    
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text    
     
     except AttributeError as err:
         sku = "None"
@@ -1002,7 +1203,7 @@ def megaS201XL():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -1041,7 +1242,7 @@ def megaMASTERsurg():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -1080,7 +1281,46 @@ def megaEXPERTsurg():
     except AttributeError as err:
         price = "None"
     try:
-        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[3]/div/p/span[2]',first="True").text
+        sku = r.html.xpath('//*[@id="maincontent"]/div[3]/div/div[2]/section[1]/div/div/div[3]/div[1]/div[2]/div',first="True").text
+    
+    except AttributeError as err:
+        sku = "None"
+    product_list ={
+
+        'gamme': gamme,
+        'dealer': dealer,
+        'ref_kavo':ref_kavo,
+        'pkavoname':pkavoname,
+        'référence' :    sku, 
+        'Désignation' : pname,            
+        'URL': url,
+        'Prix Net' :price
+           
+    }
+    fullProduxtList.append(product_list)
+    return fullProduxtList
+    time.sleep(2)
+
+def megaQuattrocare():
+    url =""
+    s = HTMLSession()
+    r= s.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+    r.html.render(sleep=1)
+    gamme="QUATTROcare"
+    dealer ="MEGA DENTAL"
+    ref_kavo="1.008.3805"
+    pkavoname="QUATTROcare Plus 2124A"
+    try :
+        pname = r.html.xpath('',first="True").text
+    except AttributeError as err:
+        pname = 'None'
+    url = url    
+    try :
+        price = r.html.xpath('',first="True").text
+    except AttributeError as err:
+        price = "None"
+    try:
+        sku = r.html.xpath('',first="True").text
     
     except AttributeError as err:
         sku = "None"
@@ -1101,6 +1341,8 @@ def megaEXPERTsurg():
     time.sleep(2)
 
 
+
+
 megaRONDOflex()
 
 megaSONICflex2008L()
@@ -1110,27 +1352,34 @@ megaE25L()
 megaE25C()
 megaDuoPackE25L()
 megaDuoPackE25_E20L()
+
+megaDuoPackE20L()
+
 megaE20L()
 megaE20C()
 megaE15L()
+megaDuoPackE15L()
 megaE15C()
 megaDuoE680L()
 megaE680L()
 megaE677L()
 megaM25L()
+DuoPackM25LM05L()
 megaM20L()
 megaM05L()
+DuoPackM25L()
 megaM07L()
 megaM29L()
 megaM10L()
 megaM9000L()
+DuoPackM9000L()
 megaM8700L()
 megaS11L()
 megaS15L()
 megaS201XL()
 megaMASTERsurg()
 megaEXPERTsurg()
-
+ 
 
 
 
@@ -1138,5 +1387,5 @@ print(len(fullProduxtList))
 
 df=pd.DataFrame(fullProduxtList)   
 print(df.head())
-df.to_csv("extraction/AOUT/conditionsMEGADENTAL15082022.csv")
+df.to_csv("extraction/NOVEMBRE/test2.csv")
 
